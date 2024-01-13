@@ -82,6 +82,7 @@ body {
   box-sizing: border-box;
   padding: 24px;
   margin-top: 16px;
+  border-radius: 12px;
   
   color: var(--off-black);
   font-weight: 700;
@@ -96,4 +97,34 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* BUTTON */
+
+.btn {
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+
+  background-color: var(--purple);
+}
+
+.btn::before {
+  content: url("./assets/icon-arrow.svg");
+}
+
+.btn span {
+  display: none;
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  
+}
+
+.btn-group hr {
+  width: 655px;
+  margin: 0;
 }
