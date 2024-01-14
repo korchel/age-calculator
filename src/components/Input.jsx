@@ -3,11 +3,14 @@ import { React } from 'react';
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
+import { useDispatch } from 'react-redux';
 
 import validationSchema from './validationSchema';
+import { setDay, setMonth, setYear } from '../store/store';
 
 const Input = () => {
-  const string = '!!!';
+  const dispatch = useDispatch();
+
   return (
     <Formik
       validationSchema={validationSchema}
@@ -20,14 +23,16 @@ const Input = () => {
       }}
       onSubmit={(values) => {
         const { day, month, year } = values;
-        console.log(new Date(year, month - 1, day));
+        dispatch(setDay(day));
+        dispatch(setMonth(month));
+        dispatch(setYear(year));
       }}
     >
       {() => (
         <Form>
           <div className="form">
             <label htmlFor="day" className="input-block label-text">
-              d a y
+              day
               <Field
                 id="day"
                 name="day"
@@ -37,7 +42,7 @@ const Input = () => {
               <ErrorMessage name="day" component="p" />
             </label>
             <label htmlFor="month" className="input-block label-text">
-              m o n t h
+              month
               <Field
                 id="month"
                 name="month"
@@ -47,7 +52,7 @@ const Input = () => {
               <ErrorMessage name="month" component="p" />
             </label>
             <label htmlFor="year" className="input-block label-text">
-              y e a r
+              year
               <Field
                 id="year"
                 name="year"
