@@ -1,4 +1,5 @@
 /* eslint-disable functional/no-expression-statements */
+/* eslint-disable no-shadow */
 import { createSlice, configureStore } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -32,3 +33,5 @@ export default configureStore({
 export const {
   setDay, setMonth, setYear,
 } = date.actions;
+
+export const getValues = (state) => state.dateReducer;
