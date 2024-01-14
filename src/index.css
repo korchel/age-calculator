@@ -28,6 +28,13 @@
   src: url("./fonts/Poppins-Bold.ttf");
 }
 
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+  margin: 0;
+}
+
 body {
   margin: 0;
 
@@ -53,6 +60,7 @@ body {
 
 .container {
   width: 840px;
+
   margin: auto;
   padding: 58px;
   border-radius: 25px 25px 200px 25px;
@@ -62,7 +70,7 @@ body {
 
 .form {
   display: flex;
-  gap: 35px;
+  gap: 32px;
 }
 
 .input-block {
@@ -80,15 +88,21 @@ body {
 
 .field {
   width: 160px;
-  box-sizing: border-box;
-  padding: 24px;
-  margin-top: 16px;
-  border-radius: 12px;
+  margin-top: 10px;
+  padding: 0 22px;
+  border-width: 1px;
+  border-radius: 8px;
+  border-color: var(--light-grey);
   
   color: var(--off-black);
   font-weight: 700;
-  font-size: 24px;
-  font-family: Poppins;
+  font-size: 32px;
+  line-height: 72px;
+  font-family: Poppins-Bold;
+}
+
+.field::placeholder {
+  color: var(--smokey-grey);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -130,17 +144,18 @@ input[type="number"] {
 .btn-group hr {
   width: 655px;
   margin: 0;
+  border-color: var(--light-grey);
 }
 
 .result-text {
-  font-size: 90px;
+  font-size: 106px;
+  line-height: 112px;
 
-  font-family: Poppins-ExtraBold;
-  font-style: italic;
+  font-family: Poppins-ExtraBoldItalic;
   margin: 0;
 }
 
 .result-text span {
   color: var(--purple);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
 }

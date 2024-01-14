@@ -38,6 +38,7 @@ const Input = () => {
                 name="day"
                 type="number"
                 className="field"
+                placeholder="DD"
               />
               <ErrorMessage name="day" component="p" />
             </label>
@@ -48,6 +49,7 @@ const Input = () => {
                 name="month"
                 type="number"
                 className="field"
+                placeholder="MM"
               />
               <ErrorMessage name="month" component="p" />
             </label>
@@ -58,6 +60,7 @@ const Input = () => {
                 name="year"
                 type="number"
                 className="field"
+                placeholder="YYYY"
               />
               <ErrorMessage name="year" component="p" />
             </label>
