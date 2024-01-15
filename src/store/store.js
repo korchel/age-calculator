@@ -6,6 +6,7 @@ const initialState = {
   day: 0,
   month: 0,
   year: 0,
+  show: false,
 };
 
 const date = createSlice({
@@ -21,6 +22,9 @@ const date = createSlice({
     setYear: (state, action) => {
       state.year = action.payload;
     },
+    setShow: (state) => {
+      state.show = true;
+    },
   },
 });
 
@@ -31,7 +35,7 @@ export default configureStore({
 });
 
 export const {
-  setDay, setMonth, setYear,
+  setDay, setMonth, setYear, setShow,
 } = date.actions;
 
 export const getValues = (state) => state.dateReducer;

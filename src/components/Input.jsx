@@ -6,7 +6,9 @@ import {
 import { useDispatch } from 'react-redux';
 
 import validationSchema from './validationSchema';
-import { setDay, setMonth, setYear } from '../store/store';
+import {
+  setDay, setMonth, setYear, setShow,
+} from '../store/store';
 
 const Input = () => {
   const dispatch = useDispatch();
@@ -26,6 +28,7 @@ const Input = () => {
         dispatch(setDay(day));
         dispatch(setMonth(month));
         dispatch(setYear(year));
+        dispatch(setShow(true));
       }}
     >
       {() => (

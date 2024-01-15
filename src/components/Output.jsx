@@ -2,6 +2,7 @@
 import { React } from 'react';
 import { useSelector } from 'react-redux';
 import { intervalToDuration } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 import { getValues } from '../store/store';
 
@@ -16,20 +17,25 @@ const getTime = (day, month, year) => {
 };
 
 const Output = () => {
-  const { day, month, year } = useSelector(getValues);
+  const { t } = useTranslation();
+
+  const {
+    day, month, year, show,
+  } = useSelector(getValues);
   const { years, months, days } = getTime(day, month, year);
+
   return (
     <div>
       <p className="result-text">
-        {years === undefined ? <span>--</span> : <span>{years}</span>}
-        years
+        {show ? <span>{years || 0}</span> : <span>--</span>}
+        {t('years.count', { count: years })}
       </p>
       <p className="result-text">
-        {months === undefined ? <span>--</span> : <span>{months}</span>}
+        {show ? <span>{months || 0}</span> : <span>--</span>}
         months
       </p>
       <p className="result-text">
-        {days === undefined ? <span>--</span> : <span>{days}</span>}
+        {show ? <span>{days || 0}</span> : <span>--</span>}
         days
       </p>
     </div>

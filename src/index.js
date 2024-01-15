@@ -1,16 +1,12 @@
 /* eslint-disable functional/no-expression-statements */
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import init from './init';
 
-const app = () => {
+const app = async () => {
   const root = ReactDOM.createRoot(document.getElementById('root'));
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-  );
+  const vdom = await init();
+  root.render(vdom);
 };
 
 app();
