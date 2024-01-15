@@ -22,20 +22,20 @@ const Output = () => {
   const {
     day, month, year, show,
   } = useSelector(getValues);
-  const { years, months, days } = getTime(day, month, year);
+  const { years = 0, months = 0, days = 0 } = getTime(day, month, year);
 
   return (
     <div>
       <p className="result-text">
-        {show ? <span>{years || 0}</span> : <span>--</span>}
+        {show ? <span>{years}</span> : <span>--</span>}
         {t('years.count', { count: years })}
       </p>
       <p className="result-text">
-        {show ? <span>{months || 0}</span> : <span>--</span>}
+        {show ? <span>{months}</span> : <span>--</span>}
         months
       </p>
       <p className="result-text">
-        {show ? <span>{days || 0}</span> : <span>--</span>}
+        {show ? <span>{days}</span> : <span>--</span>}
         days
       </p>
     </div>
