@@ -157,5 +157,5 @@ input[type="number"] {
 
 .result-text span {
   color: var(--purple);
-  letter-spacing: 0.15em;
+  /* letter-spacing: 0.15em; */
 }
