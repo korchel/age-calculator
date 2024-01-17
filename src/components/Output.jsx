@@ -32,11 +32,11 @@ const Output = () => {
       </p>
       <p className="result-text">
         {show ? <span>{months}</span> : <span>--</span>}
-        months
+        {t('months.count', { count: months })}
       </p>
       <p className="result-text">
         {show ? <span>{days}</span> : <span>--</span>}
-        days
+        {t('days.count', { count: days })}
       </p>
     </div>
   );
