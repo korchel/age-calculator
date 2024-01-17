@@ -1,5 +1,5 @@
 /* eslint-disable functional/no-expression-statements */
-import { React } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
@@ -12,6 +12,11 @@ import {
 
 const Input = () => {
   const dispatch = useDispatch();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
 
   return (
     <Formik
@@ -42,6 +47,7 @@ const Input = () => {
                 type="number"
                 className="field"
                 placeholder="DD"
+                innerRef={ref}
               />
               <ErrorMessage name="day" component="p" />
             </label>
