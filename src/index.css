@@ -73,6 +73,8 @@ body {
   gap: 32px;
 }
 
+/* INPUT */
+
 .input-block {
   display: flex;
   flex-direction: column;
@@ -88,11 +90,11 @@ body {
 
 .field {
   width: 160px;
+  margin: 0;
   margin-top: 10px;
   padding: 0 22px;
-  border-width: 1px;
+  border: 1px solid var(--light-grey);
   border-radius: 8px;
-  border-color: var(--light-grey);
   
   color: var(--off-black);
   font-weight: 700;
@@ -103,6 +105,11 @@ body {
 
 .field::placeholder {
   color: var(--smokey-grey);
+}
+
+.field:focus, .field:hover {
+  outline:none;
+  border: 1px solid var(--purple);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -129,6 +136,10 @@ input[type="number"] {
 
 .btn::before {
   content: url("./assets/icon-arrow.svg");
+}
+
+.btn:hover {
+  background-color: var(--off-black);
 }
 
 .btn span {
