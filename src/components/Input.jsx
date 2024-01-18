@@ -49,7 +49,7 @@ const Input = () => {
                 placeholder="DD"
                 innerRef={ref}
               />
-              <ErrorMessage name="day" component="p" />
+              <ErrorMessage name="day" component="p" className="errorMessage" />
             </label>
             <label htmlFor="month" className="input-block label-text">
               month
@@ -60,7 +60,7 @@ const Input = () => {
                 className="field"
                 placeholder="MM"
               />
-              <ErrorMessage name="month" component="p" />
+              <ErrorMessage name="month" component="p" className="errorMessage" />
             </label>
             <label htmlFor="year" className="input-block label-text">
               year
@@ -71,7 +71,7 @@ const Input = () => {
                 className="field"
                 placeholder="YYYY"
               />
-              <ErrorMessage name="year" component="p" />
+              <ErrorMessage name="year" component="p" className="errorMessage" />
             </label>
           </div>
           <div className="btn-group">
