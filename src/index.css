@@ -104,6 +104,7 @@ body {
   font-size: 32px;
   line-height: 72px;
   font-family: Poppins-Bold;
+  transition: 0.5s;
 }
 
 .field::placeholder {
@@ -111,9 +112,8 @@ body {
 }
 
 .field:focus {
-  line-height: 70px;
   outline: none;
-  border: 2px solid var(--purple);
+  border: 1px solid var(--purple);
 }
 
 .errorMessage {
@@ -127,7 +127,7 @@ body {
 }
 
 .field-error {
-  border: 2px solid var(--light-red);
+  border: 1px solid var(--light-red);
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -148,7 +148,7 @@ input[type="number"] {
   border-radius: 50%;
 
   background-color: var(--purple);
-
+  transition: 0.5s;
   cursor: pointer;
 }
 

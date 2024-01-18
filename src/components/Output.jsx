@@ -9,6 +9,9 @@ import { getValues } from '../store/store';
 const getTime = (day, month, year) => {
   const today = new Date();
   const past = new Date(year, month - 1, day);
+  if (year < 100) {
+    past.setFullYear(year);
+  }
   const elapsedTime = intervalToDuration({
     start: past,
     end: today,
