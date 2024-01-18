@@ -20,24 +20,24 @@ const notInTheFuture = (year, month, day) => {
 
 export default Yup.object().shape({
   day: Yup.number()
-    .required('This field is required')
-    .min(1, 'Must be a valid day')
-    .max(31, 'Must be a valid day')
+    .required('errors.required')
+    .min(1, 'errors.day')
+    .max(31, 'errors.day')
     .test(
       'date is valid',
-      'Must be a valid date',
+      'errors.invalidDate',
       (day, context) => isValidDate(context.parent.year, context.parent.month - 1, day),
     ),
   month: Yup.number()
-    .required('This field is required')
-    .min(1, 'Must be a valid month')
-    .max(12, 'Must be a valid month'),
+    .required('errors.required')
+    .min(1, 'errors.month')
+    .max(12, 'errors.month'),
   year: Yup.number()
-    .required('This field is required')
-    .max(new Date().getFullYear(), 'Must be in the past')
+    .required('errors.required')
+    .max(new Date().getFullYear(), 'errors.year')
     .test(
       'date is not in the future',
-      'Must be in the past',
+      'errors.year',
       (year, context) => notInTheFuture(year, context.parent.month - 1, context.parent.day),
     ),
 });

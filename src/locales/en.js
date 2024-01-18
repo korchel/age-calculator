@@ -1,16 +1,30 @@
 const en = {
   translation: {
-    years: {
-      count_one: 'year',
-      count_other: 'years',
+    quantity: {
+      years: {
+        count_one: 'year',
+        count_other: 'years',
+      },
+      months: {
+        count_one: 'month',
+        count_other: 'months',
+      },
+      days: {
+        count_one: 'day',
+        count_other: 'days',
+      },
     },
-    months: {
-      count_one: 'month',
-      count_other: 'months',
+    labels: {
+      day: 'day',
+      month: 'month',
+      year: 'year',
     },
-    days: {
-      count_one: 'day',
-      count_other: 'days',
+    errors: {
+      day: 'Must be a valid day',
+      invalidDate: 'Must be a valid date',
+      month: 'Must be a valid month',
+      year: 'Must be in the past',
+      required: 'This field is required',
     },
   },
 };

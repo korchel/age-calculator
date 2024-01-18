@@ -4,6 +4,7 @@ import {
   Formik, Form, Field, ErrorMessage, getIn,
 } from 'formik';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import validationSchema from './validationSchema';
 import {
@@ -16,6 +17,7 @@ const getErrorLabelStyles = (errors, name) => (getIn(errors, name) ? 'label-erro
 const Input = () => {
   const dispatch = useDispatch();
   const ref = useRef(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     ref.current.focus();
@@ -43,7 +45,7 @@ const Input = () => {
         <Form>
           <div className="form">
             <label htmlFor="day" className={`input-block label-text ${getErrorLabelStyles(errors, 'day')}`}>
-              day
+              {t('labels.day')}
               <Field
                 id="day"
                 name="day"
@@ -52,10 +54,12 @@ const Input = () => {
                 placeholder="DD"
                 innerRef={ref}
               />
-              <ErrorMessage name="day" component="p" className="errorMessage" />
+              <ErrorMessage name="day">
+                {(error) => <p className="errorMessage">{t(error)}</p>}
+              </ErrorMessage>
             </label>
             <label htmlFor="month" className={`input-block label-text ${getErrorLabelStyles(errors, 'month')}`}>
-              month
+              {t('labels.month')}
               <Field
                 id="month"
                 name="month"
@@ -63,10 +67,12 @@ const Input = () => {
                 className={`field ${getErrorFieldStyles(errors, 'month')}`}
                 placeholder="MM"
               />
-              <ErrorMessage name="month" component="p" className="errorMessage" />
+              <ErrorMessage name="month">
+                {(error) => <p className="errorMessage">{t(error)}</p>}
+              </ErrorMessage>
             </label>
             <label htmlFor="year" className={`input-block label-text ${getErrorLabelStyles(errors, 'month')}`}>
-              year
+              {t('labels.year')}
               <Field
                 id="year"
                 name="year"
@@ -74,7 +80,9 @@ const Input = () => {
                 className={`field ${getErrorFieldStyles(errors, 'year')}`}
                 placeholder="YYYY"
               />
-              <ErrorMessage name="year" component="p" className="errorMessage" />
+              <ErrorMessage name="year">
+                {(error) => <p className="errorMessage">{t(error)}</p>}
+              </ErrorMessage>
             </label>
           </div>
           <div className="btn-group">

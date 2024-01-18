@@ -31,15 +31,15 @@ const Output = () => {
     <div>
       <p className="result-text">
         {show ? <span>{years}</span> : <span>--</span>}
-        {t('years.count', { count: years })}
+        {t('quantity.years.count', { count: years })}
       </p>
       <p className="result-text">
         {show ? <span>{months}</span> : <span>--</span>}
-        {t('months.count', { count: months })}
+        {t('quantity.months.count', { count: months })}
       </p>
       <p className="result-text">
         {show ? <span>{days}</span> : <span>--</span>}
-        {t('days.count', { count: days })}
+        {t('quantity.days.count', { count: days })}
       </p>
     </div>
   );
