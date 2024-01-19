@@ -6,17 +6,20 @@ import { useTranslation } from 'react-i18next';
 
 import { getValues } from '../store/store';
 
-const getTime = (day, month, year) => {
+const getElapsedTime = (day, month, year, show) => {
+  if (show === false) {
+    return { days: 0, months: 0, years: 0 };
+  }
   const today = new Date();
   const past = new Date(year, month - 1, day);
   if (year < 100) {
     past.setFullYear(year);
   }
-  const elapsedTime = intervalToDuration({
+  const { years = 0, months = 0, days = 0 } = intervalToDuration({
     start: past,
     end: today,
   });
-  return elapsedTime;
+  return { years, months, days };
 };
 
 const Output = () => {
@@ -25,7 +28,7 @@ const Output = () => {
   const {
     day, month, year, show,
   } = useSelector(getValues);
-  const { years = 0, months = 0, days = 0 } = getTime(day, month, year);
+  const { years, months, days } = getElapsedTime(day, month, year, show);
 
   return (
     <div>
