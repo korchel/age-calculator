@@ -71,7 +71,7 @@ const Input = () => {
                 {(error) => <p className="errorMessage">{t(error)}</p>}
               </ErrorMessage>
             </label>
-            <label htmlFor="year" className={`input-block label-text ${getErrorLabelStyles(errors, 'month')}`}>
+            <label htmlFor="year" className={`input-block label-text ${getErrorLabelStyles(errors, 'year')}`}>
               {t('labels.year')}
               <Field
                 id="year"
