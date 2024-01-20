@@ -1,8 +1,9 @@
 /* eslint-disable functional/no-expression-statements */
 import * as Yup from 'yup';
 
-const isValidDate = (year, month, day) => {
+const isValidDay = (year, month, day) => {
   const date = new Date(year, month, day);
+  // workaround?:
   if (year < 100) {
     date.setFullYear(year);
   }
@@ -15,6 +16,7 @@ const isValidDate = (year, month, day) => {
 const notInTheFuture = (year, month, day) => {
   const today = new Date();
   const past = new Date(year, month, day);
+
   return today.getTime() > past.getTime();
 };
 
@@ -26,7 +28,10 @@ export default Yup.object().shape({
     .test(
       'date is valid',
       'errors.invalidDate',
-      (day, context) => isValidDate(context.parent.year, context.parent.month - 1, day),
+      (day, context) => {
+        if (context.parent.month > 12) return true; // workaround
+        return isValidDay(context.parent.year, context.parent.month - 1, day);
+      },
     ),
   month: Yup.number()
     .required('errors.required')
@@ -38,6 +43,11 @@ export default Yup.object().shape({
     .test(
       'date is not in the future',
       'errors.year',
-      (year, context) => notInTheFuture(year, context.parent.month - 1, context.parent.day),
+      (year, context) => {
+        if (context.parent.month > 12
+          || !isValidDay(year, context.parent.month - 1, context.parent.day)
+        ) return true; // workaround
+        return notInTheFuture(year, context.parent.month - 1, context.parent.day);
+      },
     ),
 });
