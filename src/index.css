@@ -36,7 +36,6 @@
 
 body {
   margin: 0;
-
   background-color: var(--off-white);
 
   font-family: Poppins;
@@ -59,7 +58,6 @@ body {
 
 .container {
   width: 840px;
-
   margin: auto;
   padding: 58px;
   border-radius: 25px 25px 200px 25px;
@@ -68,6 +66,7 @@ body {
 }
 
 .form {
+  width: 100%;
   display: flex;
   gap: 32px;
 }
@@ -75,6 +74,7 @@ body {
 /* INPUT */
 
 .input-block {
+  max-width: 160px;
   display: flex;
   flex-direction: column;
 }
@@ -92,7 +92,7 @@ body {
 }
 
 .field {
-  width: 160px;
+  width: 100%;
   margin: 0;
   margin-top: 10px;
   padding: 0 22px;
@@ -141,11 +141,25 @@ input[type="number"] {
 
 /* BUTTON */
 
+.btn-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100px;
+}
+
+.btn-group hr {
+  width: 100%;
+  border-color: var(--light-grey);
+}
+
 .btn {
   width: 100px;
   height: 100px;
   border: none;
   border-radius: 50%;
+  position: absolute;
+  right: 0;
 
   background-color: var(--purple);
   transition: 0.5s;
@@ -164,17 +178,7 @@ input[type="number"] {
   display: none;
 }
 
-.btn-group {
-  display: flex;
-  align-items: center;
-  
-}
-
-.btn-group hr {
-  width: 655px;
-  margin: 0;
-  border-color: var(--light-grey);
-}
+/* RESULT */
 
 .result-text {
   font-size: 106px;
@@ -186,5 +190,75 @@ input[type="number"] {
 
 .result-text span {
   color: var(--purple);
-  /* letter-spacing: 0.15em; */
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 50px 30px;
+  }
+
+  .form {
+    gap: 20px;
+  }
+
+  .btn-group {
+    height: 64px;
+    margin: 32px 0;
+  }
+
+  .result-text {
+    font-size: 80px;
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 535px) {
+  .field {
+    padding: 0 15px;
+    margin-top: 4px;
+    font-size: 20px; 
+    line-height: 50px;
+  }
+
+  .btn {
+    width: 64px;
+    height: 64px;
+    left: 50%;
+    margin-left: -32px;
+  }
+
+  .btn::before {
+    display: inline-block;
+    width: 32px; 
+    height: 32px;
+    background-image: url('./assets/icon-arrow.svg');
+    background-size: 32px 32px;
+    content:"";
+  }
+
+  .result-text {
+    font-size: 56px;
+    line-height: 62px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    width: 340px;
+    padding: 50px 20px;
+    border-radius: 25px 25px 100px 25px;
+  }
+
+  .form {
+    gap: 18px;
+  }
+
+  .label-text {
+    letter-spacing: 0.3em;
+  }
+
+  .result-text {
+    font-size: 56px;
+    line-height: 62px;
+  }
 }
